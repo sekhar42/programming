@@ -748,18 +748,20 @@ pre code {
 /* Watermark Footer */
 .watermark {
   position: fixed;
-  bottom: 14px;
+  bottom: 16px;
   right: 20px;
-  font-size: 0.78rem;
-  color: var(--text-dim);
-  opacity: 0.6;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #f3f4f6;
+  background: rgba(18, 24, 38, 0.92);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  padding: 6px 14px;
+  border-radius: 8px;
+  border: 1px solid rgba(99, 102, 241, 0.35);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  z-index: 99999;
   pointer-events: none;
-  z-index: 999;
   font-family: inherit;
-  letter-spacing: 0.3px;
-  background: rgba(11, 15, 25, 0.6);
-  backdrop-filter: blur(4px);
-  padding: 4px 10px;
-  border-radius: 6px;
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  letter-spacing: 0.4px;
 }
