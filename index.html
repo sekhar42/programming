@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Programming by Hemanth Sir</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="container">
+
+    <!-- ==================== VIEW 1: HOME DASHBOARD ==================== -->
+    <main id="home-view" class="view-section">
+      <header>
+        <div class="title-badge">⚡ Interactive Learning Portal</div>
+        <h1>Programming by Hemanth Sir</h1>
+        <p>Master Data Structures, Algorithms & Logic Building Module by Module</p>
+      </header>
+
+      <!-- Category Cards Grid -->
+      <section>
+        <h2 style="font-size: 1.3rem; font-weight: 700; margin-bottom: 16px; color: var(--text-main);">Select Practice
+          Category</h2>
+        <div class="category-grid" id="category-cards-container">
+          <!-- Dynamically populated category cards from app.js -->
+        </div>
+      </section>
+    </main>
+
+
+    <!-- ==================== VIEW 2: CATEGORY DETAIL TRACKER ==================== -->
+    <main id="category-view" class="view-section hidden">
+      <!-- Top Navigation Header -->
+      <div class="nav-header">
+        <button class="btn-back" id="btn-back-home">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <line x1="19" y1="12" x2="5" y2="12"></line>
+            <polyline points="12 19 5 12 12 5"></polyline>
+          </svg>
+          <span>Back to Categories</span>
+        </button>
+        <span class="day-indicator" id="category-active-badge">Active Topic</span>
+      </div>
+
+      <header style="margin-bottom: 24px; text-align: left;">
+        <h1 id="category-page-title">Pattern Problems by Hemanth Sir</h1>
+        <p id="category-page-desc">Java Pattern Solutions & Daily Practice Log</p>
+      </header>
+
+      <!-- Category Specific Progress Card -->
+      <div class="progress-card">
+        <div class="progress-header">
+          <div class="progress-title">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+              stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent-cyan);">
+              <path d="M22 11.08V12a10 10 10 0 1 1-5.93-9.14"></path>
+              <polyline points="22 4 12 14.01 9 11.01"></polyline>
+            </svg>
+            <span>Category Progress</span>
+          </div>
+          <div class="progress-stats" id="progress-stats-text">0 / 0 Solved (0%)</div>
+        </div>
+        <div class="progress-bar-bg">
+          <div class="progress-bar-fill" id="progress-bar-fill"></div>
+        </div>
+      </div>
+
+      <!-- Filter Controls Bar -->
+      <div class="controls-bar">
+        <div class="filter-group" id="day-filter-wrapper">
+          <label for="day-select-filter" class="filter-label">Select Day:</label>
+          <div class="custom-select-wrapper">
+            <select id="day-select-filter" class="day-select">
+              <option value="day1" selected>Day 1</option>
+              <option value="day2">Day 2</option>
+              <option value="day3">Day 3</option>
+              <option value="all">All Days</option>
+            </select>
+            <span class="select-arrow">▼</span>
+          </div>
+        </div>
+
+        <div class="search-wrapper">
+          <span class="search-icon">🔍</span>
+          <input type="text" id="search-input" class="search-input" placeholder="Search questions or topics...">
+        </div>
+      </div>
+
+      <!-- Questions List -->
+      <div class="question-list" id="question-list-container">
+        <!-- Dynamically populated from JS -->
+      </div>
+    </main>
+
+  </div>
+
+  <!-- Solution Modal Window -->
+  <div class="modal-overlay" id="solution-modal" aria-hidden="true">
+    <div class="modal-container">
+      <div class="modal-header">
+        <div class="modal-title-area">
+          <h2 class="modal-title" id="modal-title">Problem Title</h2>
+          <div class="meta-tags" id="modal-tags">
+            <!-- Modal Badges -->
+          </div>
+        </div>
+        <button class="close-btn" id="modal-close-btn" aria-label="Close modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div>
+          <div class="section-title">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="12" y1="16" x2="12" y2="12"></line>
+              <line x1="12" y1="8" x2="12.01" y2="8"></line>
+            </svg>
+            <span>Problem Description</span>
+          </div>
+          <p class="problem-desc" id="modal-description">Description details here...</p>
+        </div>
+
+        <div class="complexity-grid">
+          <div class="complexity-box">
+            <span>Time Complexity</span>
+            <strong id="modal-time-complexity">O(N²)</strong>
+          </div>
+          <div class="complexity-box">
+            <span>Space Complexity</span>
+            <strong id="modal-space-complexity">O(1)</strong>
+          </div>
+        </div>
+
+        <div>
+          <div class="section-title" style="color: var(--accent-cyan);">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+              <circle cx="12" cy="12" r="3"></circle>
+            </svg>
+            <span>Sample Visual Output</span>
+          </div>
+          <div class="code-container"
+            style="background: rgba(6, 182, 212, 0.05); border-color: rgba(6, 182, 212, 0.2);">
+            <pre><code id="modal-sample-output" style="color: var(--accent-cyan); font-weight: 600;">// Visual pattern output...</code></pre>
+          </div>
+        </div>
+
+        <div>
+          <div class="section-title">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="16 18 22 12 16 6"></polyline>
+              <polyline points="8 6 2 12 8 18"></polyline>
+            </svg>
+            <span>Java Solution Implementation</span>
+          </div>
+          <div class="code-container">
+            <pre><code id="modal-code-display">// Code implementation here...</code></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="watermark">web page is created by suman shekhar</footer>
+  <script src="app.js"></script>
+</body>
+
+</html>
